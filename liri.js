@@ -1,6 +1,6 @@
 require("dotenv").config();
 var Twitter = require("twitter")
-var Spotify = require("spotify")
+var Spotify = require("node-spotify-api")
 var keys = require("./keys.js")
 var request = require("request")
 var fs = require("fs")
@@ -116,7 +116,7 @@ for (var i = 3; i < cmdArgs.length; i++) {
 		fs.readFile("./random.txt", "utf8", function(error, data){
 			if (!error) {
 				doWhatItSaysResults = data.split(",");
-				spotifySong(doWhatItSaysResults[0], doWhatItSaysResults[1]);
+				spotifySong(doWhatItSaysResults[1]);
 			} else {
 				console.log("Error occurred" + error);
 			}
